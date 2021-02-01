@@ -1,5 +1,8 @@
 #include <iostream>
 
+#ifndef QUEUE_H
+#define QUEUE_H
+
 template <class TValue> class Queue;
 template <class TValue> class PriorityQueue;
 template <class TValue> class QueueElement;
@@ -122,3 +125,5 @@ void PriorityQueue<TValue>::insert_with_priority(TValue element){
 
   this->length++;
 }
+
+#endif

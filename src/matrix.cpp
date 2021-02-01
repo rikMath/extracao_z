@@ -10,11 +10,39 @@ Matrix::Matrix(){
 }
 
 Matrix::Matrix(std::ifstream &myFile){
-  m = new std::string*;
   std::string t;
-  while(! (myFile >> t)){
+  int count = 0, rows, cols;
+  int current_line = 0;
+  bool start = false;
+  while(getline(myFile, t)){
 
-    std::cout << t << std::endl;
+    if(count == 0){
+      rows = std::stoi(t.substr(0, t.find(" ")));
+      cols = std::stoi(t.substr(t.find(" ")+1, t.length()));
+      nRows=rows-1;
+      nCols=cols-1;
+      count++;
+    }
+
+    else{
+      if(!start){
+        m = new std::string*[rows]; // Cria um array de ponteiros de rows posições
+        for(int i = 0; i < rows; i++){
+          m[i] = new std::string[cols]; // cria um array de doubles de cols posições
+
+        }
+        start = true;
+      }
+
+
+      for (int i = 0; i < 2*cols; i++) {
+        if (i%2 != 1){
+          m[current_line][i/2] = t[i];
+        }
+
+      }
+      current_line++;
+    }
 
   }
 }
@@ -58,7 +86,7 @@ void Matrix::print() const {
   for(int i = 0; i <= this->nRows; i++){
 
     for (int j = 0; j <= this->nCols; j++) {
-      std::cout << m[i][j] << "   ";
+      std::cout << m[i][j] << " ";
     }
     std::cout << '\n';
   }

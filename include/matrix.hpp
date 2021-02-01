@@ -1,6 +1,9 @@
 #include <iostream>
 #include <string>
 
+#ifndef MATRIX_H
+#define MATRIX_H
+
 class Matrix {
     private:
 
@@ -27,3 +30,5 @@ class Matrix {
         // // Variados
         void print() const;
 };
+
+#endif
