@@ -15,7 +15,7 @@ protected:
   QueueElement* next;
 
 public:
-  QueueElement<TValue> (){item=NULL;next=NULL;};
+  QueueElement<TValue> (){item=0;next=NULL;};
   QueueElement<TValue> (TValue);
   inline void print(){std::cout << item << std::endl;};
 

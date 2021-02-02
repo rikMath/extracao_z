@@ -24,6 +24,10 @@ int main(int argc, char const *argv[]) {
   // mm.print();
   Map l(in);
   l.print();
+  l.destroy_alien(1,1);
+  cout << "\n\n\n";
+  l.print();
+  // cout << l.destroy_alien(5,2) << endl;
   // std::cout<<mm.getRows()<<"\n";
   // std::cout<<mm.getCols();
   return 0;

@@ -17,16 +17,22 @@ class Matrix {
         Matrix();
         Matrix(std::ifstream &myFile);
         Matrix(const Matrix& that);
-        //
+
+
         // // Destrutor
         ~Matrix();
-        //
-        //
-        // // Getters
-        int getRows() const{return nRows+1;}; //função inline
-        int getCols() const{return nCols+1;}; //função inline
+
+
+        // // Getters e Setters
+        inline int getRows() const{return nRows+1;};
+        inline int getCols() const{return nCols+1;};
         std::string get(int row, int col) const;
-        //
+
+        void set(int row, int col, std::string value);
+
+        // Operadores
+        std::string* operator[] (int);
+
         // // Variados
         void print() const;
 };

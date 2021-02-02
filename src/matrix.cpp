@@ -76,7 +76,15 @@ std::string Matrix::get(int row, int col) const {
       throw "Erro";
     }
 }
-//
+
+void Matrix::set(int row, int col, std::string value) {
+  this->m[row-1][col-1] = value;
+}
+
+std::string* Matrix::operator[] (int pos){
+  return m[pos];
+}
+
 void Matrix::print() const {
   if(nRows == 0 && nCols == 0){
     std::cout << "Matriz vazia" << std::endl;
