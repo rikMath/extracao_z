@@ -46,7 +46,7 @@ public:
 
 
 template <class TValue>
-Queue<TValue>::Queue():length(0){}
+Queue<TValue>::Queue():length(0){front=NULL;back=NULL;}
 
 template <class TValue>
 void Queue<TValue>::insert(TValue element){
