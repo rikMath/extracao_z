@@ -11,13 +11,15 @@ using namespace std;
 
 int main(int argc, char const *argv[]) {
   PriorityQueue<double> q;
+  q.print();
+  cout << "..........." << endl;
   q.insert(2.2);
   q.insert(2.3);
   q.insert_with_priority(1);
-  // q.print();
-  // cout << "..........." << endl;
+  q.print();
+  cout << "..........." << endl;
   q.delete_element();
-  // q.print();
+  q.print();
 
   string tt;
 
@@ -37,6 +39,6 @@ int main(int argc, char const *argv[]) {
   // cout << r.move_to(l, 2, 3) << endl;
 
   Base* b = new Base(in);
-  b->print_map();
+  // b->print_map();
   return 0;
 }
