@@ -1,6 +1,7 @@
 #include <fstream>
 #include "../include/base.hpp"
 #include "../include/map.hpp"
+#include "../include/queue.hpp"
 
 Base::Base(std::ifstream &myFile) {
   resources = 0;

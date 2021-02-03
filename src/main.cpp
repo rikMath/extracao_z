@@ -6,6 +6,8 @@
 #include "../include/map.hpp"
 #include "../include/robot.hpp"
 #include "../include/base.hpp"
+#include "../include/order.hpp"
+#include "../include/robotArray.hpp"
 
 using namespace std;
 
@@ -20,10 +22,10 @@ int main(int argc, char const *argv[]) {
   cout << "..........." << endl;
   q.delete_element();
   q.print();
+  //
+  // string tt;
 
-  string tt;
-
-  ifstream in("src/mapa.txt");
+  // ifstream in("src/mapa.txt");
   // Matrix mm(in);
   // mm.print();
   // Map l(in);
@@ -38,7 +40,15 @@ int main(int argc, char const *argv[]) {
   // Robot r(1);
   // cout << r.move_to(l, 2, 3) << endl;
 
-  Base* b = new Base(in);
+  // Base* b = new Base(in);
   // b->print_map();
+
+  // ifstream in("src/order.txt");
+
+  // RobotArray* r = new RobotArray;
+  // cout << r->activate_robot(3) << endl;
+  // cout << r->activate_robot(6) << endl;
+  // cout << r->activate_robot(3) << endl;
+  // delete r;
   return 0;
 }

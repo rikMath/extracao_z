@@ -9,9 +9,16 @@ Robot::Robot(int current_id, int x/*= 0*/, int y/*= 0*/):id(current_id){
   pos_y = y;
   resources = 0;
   aliens = 0;
+  active = false;
 }
 
 Robot::~Robot() {}
+
+bool Robot::activate() {
+  bool was_active = this->active;
+  this->active = true;
+  return was_active;
+}
 
 bool Robot::move_to(const Map& map, int x, int y){
   if (map.move_to(x, y)){

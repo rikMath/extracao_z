@@ -9,6 +9,7 @@ private:
   const int id;
   int pos_x, pos_y;
   int resources, aliens;
+  bool active;
 
 public:
   // Construtor
@@ -22,6 +23,9 @@ public:
   inline int get_pos_x() const {return pos_x;};
   inline int get_pos_y() const {return pos_y;};
 
+  // Setters
+  bool activate();
+
   // Ordens referentes ao mapa
   bool move_to(const Map& map, int x, int y);
   bool destroy_alien(Map& map, int x, int y);
@@ -30,6 +34,7 @@ public:
   // Ordens de Recursos/Aliens coletados
   int return_resources_to_base();
   int return_aliens_to_base();
+
 };
 
 #endif
