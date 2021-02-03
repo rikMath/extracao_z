@@ -19,7 +19,7 @@ std::string Map::resource = "R";
 
 std::string Map::empty = ".";
 
-bool Map::move_to(int x, int y) {
+bool Map::move_to(int x, int y) const {
   std::string current_pos_value = this->visit_position(x, y);
 
   if (current_pos_value != this->obstacle){

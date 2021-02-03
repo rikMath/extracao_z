@@ -14,7 +14,7 @@ private:
 
   Matrix* elements;
 
-  inline std::string visit_position(int x, int y) {return (*elements)[x-1][y-1];};
+  inline std::string visit_position(int x, int y) const {return (*elements)[x-1][y-1];};
 
 public:
 
@@ -26,7 +26,7 @@ public:
   ~Map();
 
   // Operações no mapa
-  bool move_to(int x, int y);
+  bool move_to(int x, int y) const;
   bool destroy_alien(int x, int y);
   bool colect_resource(int x, int y);
 
