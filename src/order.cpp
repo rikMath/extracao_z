@@ -57,7 +57,7 @@ void Orders::execute_direct_order(std::string order, Base &base) {
     this->activation_order(order, base);
   }
   else if(order.find("EXECUTAR") != std::string::npos) {
-
+    this->execute_order(order, base);
   }
   else if(order.find("RELATORIO") != std::string::npos) {
     this->relatory_order(order, base);
@@ -80,6 +80,11 @@ void Orders::relatory_order(std::string order, Base &base) {
 void Orders::return_order(std::string order, Base &base) {
   int id = std::stoi(order.substr(9, order.length()));
   base.return_robot(id);
+}
+
+void Orders::execute_order(std::string order, Base &base) {
+  int id = std::stoi(order.substr(9, order.length()));
+  base.execute_orders(id);
 }
 
 bool Orders::is_direct_order(std::string order) {

@@ -41,6 +41,10 @@ void Base::print_relatory(int id) {
   robots->print_relatory(id);
 }
 
+void Base::execute_orders(int id) {
+  std::cout << "Execução" << std::endl;
+}
+
 void Base::add_normal_order(std::string order) {
   std::cout << "Ordem s Enviada" << std::endl;
 }
