@@ -16,6 +16,6 @@ int main(int argc, char const *argv[]) {
   ifstream orderFile(argv[2]);
 
   Base base(mapFile, orderFile);
-  base.print_map();
+  // base.print_map();
   return 0;
 }

@@ -1,5 +1,6 @@
 #include <fstream>
 #include "./map.hpp"
+#include "./order.hpp"
 #include "./queue.hpp"
 #include "./robotArray.hpp"
 
@@ -10,6 +11,7 @@ class Base {
 private:
   int resources, aliens;
   Map* map;
+  Orders* orders;
   RobotArray* robots;
 
   // RobotArray
