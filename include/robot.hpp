@@ -43,6 +43,9 @@ public:
   int return_resources_to_base();
   int return_aliens_to_base();
 
+  // Outras ordens
+  void print_relatory();
+
 };
 
 #endif

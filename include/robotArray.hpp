@@ -16,6 +16,7 @@ public:
 
   int return_resources_to_base(int);
   int return_aliens_to_base(int);
+  void print_relatory(int);
 };
 
 #endif

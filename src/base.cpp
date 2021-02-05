@@ -37,6 +37,10 @@ void Base::return_robot(int id) {
   std::cout << "BASE: ROBO " << id << " NAO ESTA EM MISSAO" << std::endl;
 }
 
+void Base::print_relatory(int id) {
+  robots->print_relatory(id);
+}
+
 void Base::add_normal_order(std::string order) {
   std::cout << "Ordem s Enviada" << std::endl;
 }

@@ -65,3 +65,8 @@ int Robot::return_aliens_to_base() {
   this->aliens = 0;
   return r;
 }
+
+void Robot::print_relatory() {
+  executedOrders->print();
+  executedOrders->clear();
+}

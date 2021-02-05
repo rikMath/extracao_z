@@ -43,6 +43,7 @@ public:
   void insert(TValue element);
   TValue delete_element();
   int get_element_number();
+  void clear();
   void print();
 };
 
@@ -82,6 +83,17 @@ TValue Queue<TValue>::delete_element(){
   delete toDeleteElement;
 
   return returnItem;
+}
+
+template <class TValue>
+void Queue<TValue>::clear(){
+  QueueElement<TValue>* current_element;
+  current_element = front;
+
+  while (current_element != NULL){
+    this->delete_element();
+    current_element = current_element->next;
+  }
 }
 
 template <class TValue>

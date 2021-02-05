@@ -24,6 +24,10 @@ int RobotArray::return_aliens_to_base(int id) {
   return robots[id]->return_aliens_to_base();
 };
 
+void RobotArray::print_relatory(int id) {
+  robots[id]->print_relatory();
+};
+
 bool RobotArray::activate_robot(int id) {
   return robots[id]->activate() ? true : false;
 };
