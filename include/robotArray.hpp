@@ -12,6 +12,10 @@ public:
   RobotArray ();
   virtual ~RobotArray ();
   bool activate_robot(int);
+  bool is_active_robot(int);
+
+  int return_resources_to_base(int);
+  int return_aliens_to_base(int);
 };
 
 #endif

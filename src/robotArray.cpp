@@ -13,6 +13,18 @@ RobotArray::~RobotArray() {
   }
 }
 
+int RobotArray::return_resources_to_base(int id) {
+  return robots[id]->return_resources_to_base();
+};
+
+int RobotArray::return_aliens_to_base(int id) {
+  return robots[id]->return_aliens_to_base();
+};
+
 bool RobotArray::activate_robot(int id) {
   return robots[id]->activate() ? true : false;
 };
+
+bool RobotArray::is_active_robot(int id) {
+  return robots[id]->is_active();
+}

@@ -1,6 +1,5 @@
 #include <fstream>
 #include "./map.hpp"
-#include "./order.hpp"
 #include "./queue.hpp"
 #include "./robotArray.hpp"
 
@@ -11,7 +10,6 @@ class Base {
 private:
   int resources, aliens;
   Map* map;
-  Orders* orders;
   RobotArray* robots;
 
   // RobotArray
@@ -19,10 +17,15 @@ private:
   // essa ordem e ela ser cuidada na classe. Chamar uma função que descobre a ordem e vai saber
   // se deve chamar um robo o mapa ou realizar uma impressão
 public:
-  Base (std::ifstream &mapFile, std::ifstream &orderFile);
+  Base (std::ifstream &mapFile);
   virtual ~Base ();
 
-  inline void print_map() const {map->print();};
+  inline void print_map() const {map->print();}
+
+  inline void print_resources() const {std::cout<<"BASE: TOTAL DE ALIENS "<<aliens<<" RECURSOS "<<resources<<std::endl;}
+
+  void activate_robot(int);
+  void return_robot(int);
 };
 
 #endif

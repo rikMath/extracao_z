@@ -2,6 +2,7 @@
 #include<fstream>
 #include <iostream>
 #include "../include/map.hpp"
+#include "../include/queue.hpp"
 #include "../include/robot.hpp"
 
 Robot::Robot(int current_id, int x/*= 0*/, int y/*= 0*/):id(current_id){
@@ -10,9 +11,12 @@ Robot::Robot(int current_id, int x/*= 0*/, int y/*= 0*/):id(current_id){
   resources = 0;
   aliens = 0;
   active = false;
+  orderQueue = new PriorityQueue<std::string>;
 }
 
-Robot::~Robot() {}
+Robot::~Robot() {
+  delete orderQueue;
+}
 
 bool Robot::activate() {
   bool was_active = this->active;
