@@ -3,10 +3,11 @@
 #include "../include/map.hpp"
 #include "../include/queue.hpp"
 
-Base::Base(std::ifstream &myFile) {
+Base::Base(std::ifstream &mapFile, std::ifstream &orderFile) {
   resources = 0;
   aliens = 0;
-  map = new Map(myFile);
+  map = new Map(mapFile);
+  robots = new RobotArray;
 }
 
 Base::~Base() {
