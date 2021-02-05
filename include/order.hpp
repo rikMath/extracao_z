@@ -14,8 +14,9 @@ private:
    void executeOrders();
 
    void receive_order(std::string, Base &base);
-   void add_order_with_priority(std::string);
-   void add_normal_order(std::string);
+   
+   void add_order_with_priority(std::string, Base &base);
+   void add_normal_order(std::string, Base &base);
 
    void execute_direct_order(std::string, Base &base);
    void activation_order(std::string, Base &base);

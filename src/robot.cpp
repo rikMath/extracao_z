@@ -6,16 +6,21 @@
 #include "../include/robot.hpp"
 
 Robot::Robot(int current_id, int x/*= 0*/, int y/*= 0*/):id(current_id){
+  // std::cout << "Criando robo" << current_id << std::endl;
   pos_x = x;
   pos_y = y;
   resources = 0;
   aliens = 0;
   active = false;
-  orderQueue = new PriorityQueue<std::string>;
+  toExecuteOrders = new PriorityQueue<std::string>;
+  executedOrders = new PriorityQueue<std::string>;
 }
 
 Robot::~Robot() {
-  delete orderQueue;
+  // std::cout << "entrando destrutor robot " << id << std::endl;
+  delete toExecuteOrders;
+  delete executedOrders;
+  // std::cout << "saindo destrutor robot " << id <<std::endl;
 }
 
 bool Robot::activate() {

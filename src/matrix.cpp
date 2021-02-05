@@ -61,10 +61,12 @@ Matrix::Matrix(const Matrix& that){
 }
 
 Matrix::~Matrix() {
+  // std::cout << "entrando destrutor matrix" << std::endl;
   for(int i = 0; i<= nRows; i++){
     delete[] m[i]; // deleção de arrays de doubles
   }
   delete[] m; // deleção de array de pointers
+  // std::cout << "saindo destrutor matrix" << std::endl;
 }
 
 

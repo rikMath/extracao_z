@@ -8,9 +8,12 @@ RobotArray::RobotArray() {
 }
 
 RobotArray::~RobotArray() {
+
+  // std::cout << "entrando destrutor robotArray" << std::endl;
   for (int i=0; i<50; i++) {
     delete robots[i];
   }
+  // std::cout << "saindo destrutor robotArray" << std::endl;
 }
 
 int RobotArray::return_resources_to_base(int id) {

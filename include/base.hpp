@@ -26,6 +26,9 @@ public:
 
   void activate_robot(int);
   void return_robot(int);
+
+  void add_normal_order(std::string);
+  void add_order_with_priority(std::string);
 };
 
 #endif

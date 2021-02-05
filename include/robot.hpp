@@ -12,7 +12,9 @@ private:
   int pos_x, pos_y;
   int resources, aliens;
   bool active;
-  PriorityQueue<std::string>* orderQueue;
+  PriorityQueue<std::string>* toExecuteOrders;
+  PriorityQueue<std::string>* executedOrders;
+
 
 public:
   // Construtor

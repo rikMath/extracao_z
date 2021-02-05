@@ -6,7 +6,7 @@
 
 Orders::Orders(std::ifstream &file, Base &base) {
 
-  orderQueue = new PriorityQueue<std::string>;
+  // orderQueue = new PriorityQueue<std::string>;
 
   std::string t;
   while(getline(file, t)){
@@ -18,13 +18,15 @@ Orders::Orders(std::ifstream &file, Base &base) {
 }
 
 Orders::~Orders() {
-
+  // std::cout << "entrando destrutor orders" << std::endl;
+  // delete orderQueue;
+  // std::cout << "saindo destrutor orders" << std::endl;
 }
 
 void Orders::receive_order(std::string order, Base &base) {
 
   if(order[0] == '*') {
-    this->add_order_with_priority(order);
+    this->add_order_with_priority(order, base);
   }
 
   else {
@@ -35,19 +37,19 @@ void Orders::receive_order(std::string order, Base &base) {
 
     }
     else{
-      this->add_normal_order(order);
+      this->add_normal_order(order, base);
     }
 
   }
 
 }
 
-void Orders::add_normal_order(std::string order) {
-  orderQueue->insert(order);
+void Orders::add_normal_order(std::string order, Base &base) {
+  base.add_normal_order(order);
 }
 
-void Orders::add_order_with_priority(std::string order) {
-  orderQueue->insert_with_priority(order);
+void Orders::add_order_with_priority(std::string order, Base &base) {
+  base.add_order_with_priority(order);
 }
 
 void Orders::execute_direct_order(std::string order, Base &base) {

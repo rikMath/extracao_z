@@ -18,7 +18,7 @@ int main(int argc, char const *argv[]) {
 
   // Criação da Base
   Base base(mapFile);
-  // base.print_map();
+  base.print_map();
 
   // Criação das ordens
   Orders orders(orderFile, base);
