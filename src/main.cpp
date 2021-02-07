@@ -15,10 +15,9 @@ int main(int argc, char const *argv[]) {
   // Criação Objetos de Arquivos fornecidos pela Linha de Comando
   ifstream mapFile (argv[1]);
   ifstream orderFile(argv[2]);
-  
+
   // Criação da Base
   Base base(mapFile);
-  // base.print_map();
 
   // Criação das ordens
   Orders orders(orderFile, base);

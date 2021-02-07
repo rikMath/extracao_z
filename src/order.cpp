@@ -6,21 +6,17 @@
 
 Orders::Orders(std::ifstream &file, Base &base) {
 
-  // orderQueue = new PriorityQueue<std::string>;
 
   std::string t;
   while(getline(file, t)){
     this->receive_order(t, base);
   }
 
-  // orderQueue->print();
 
 }
 
 Orders::~Orders() {
-  // std::cout << "entrando destrutor orders" << std::endl;
-  // delete orderQueue;
-  // std::cout << "saindo destrutor orders" << std::endl;
+
 }
 
 void Orders::receive_order(std::string order, Base &base) {
@@ -48,15 +44,12 @@ void Orders::add_normal_order(std::string order, Base &base) {
   int id;
   if (order.find("MOVER") != std::string::npos){
     id = std::stoi(order.substr(6, 8));
-    // std::cout << order << " " << id << std::endl;
   }
   else if (order.find("COLETAR") != std::string::npos){
     id = std::stoi(order.substr(8, order.length()));
-    // std::cout << order << " " << id << std::endl;
   }
   else if (order.find("ELIMINAR") != std::string::npos){
     id = std::stoi(order.substr(9, order.length()));
-    // std::cout << order << " " << id << std::endl;
   }
   base.add_normal_order(order, id);
 }
@@ -65,15 +58,12 @@ void Orders::add_order_with_priority(std::string order, Base &base) {
   int id;
   if (order.find("MOVER") != std::string::npos){
     id = std::stoi(order.substr(7, 9));
-    // std::cout << order << " " << id << std::endl;
   }
   else if (order.find("COLETAR") != std::string::npos){
     id = std::stoi(order.substr(9, order.length()));
-    // std::cout << order << " " << id << std::endl;
   }
   else if (order.find("ELIMINAR") != std::string::npos){
     id = std::stoi(order.substr(10, order.length()));
-    // std::cout << order << " " << id << std::endl;
   }
   base.add_order_with_priority(order, id);
 }

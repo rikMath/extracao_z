@@ -8,9 +8,7 @@ Map::Map(std::ifstream &myFile){
 }
 
 Map::~Map() {
-  // std::cout << "entrando destrutor map" << std::endl;
   delete elements;
-  // std::cout << "saindo destrutor map" << std::endl;
 }
 
 std::string Map::obstacle = "O";

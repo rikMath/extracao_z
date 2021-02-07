@@ -6,7 +6,6 @@
 #include "../include/robot.hpp"
 
 Robot::Robot(int current_id, int x/*= 0*/, int y/*= 0*/):id(current_id){
-  // std::cout << "Criando robo" << current_id << std::endl;
   pos_x = x;
   pos_y = y;
   resources = 0;
@@ -17,10 +16,8 @@ Robot::Robot(int current_id, int x/*= 0*/, int y/*= 0*/):id(current_id){
 }
 
 Robot::~Robot() {
-  // std::cout << "entrando destrutor robot " << id << std::endl;
   delete toExecuteOrders;
   delete executedOrders;
-  // std::cout << "saindo destrutor robot " << id <<std::endl;
 }
 
 bool Robot::activate() {
@@ -77,55 +74,37 @@ int Robot::return_aliens_to_base() {
 }
 
 void Robot::print_relatory() {
-  // int size = executedOrders->get_element_number();
-  // // std::cout << " Relatório tamanho: " << size << std::endl;
-  // std::string current_order;
-  // for(int i = 0; i < size; i++) {
-  //   current_order = executedOrders->delete_element();
-  //
-  //   std::cout << current_order << std::endl;
-  //
-  // }
   executedOrders->print();
 }
 
 void Robot::execute_order(Map& map) {
   int size = toExecuteOrders->get_element_number();
-  // std::cout << " Execução tamanho: " << size << std::endl;
   std::string current_order;
   for(int i = 0; i < size; i++) {
-    // std::cout << i <<"\n";
     current_order = toExecuteOrders->delete_element();
-    // std::cout << current_order << std::endl;
     this->process_order(current_order, map);
 
   }
-  // std::cout << " Execução FIM"<<std::endl;
 }
 
 void Robot::process_order(std::string order, Map& map){
 
   if (order.find("MOVER") != std::string::npos) {
-    // std::cout<<"  move"<<std::endl;
     this->move_order(order, map);
   }
   else if (order.find("COLETAR") != std::string::npos) {
-    // std::cout<<"  colec"<<std::endl;
     this->collect_order(map);
   }
   else if (order.find("ELIMINAR") != std::string::npos) {
-    // std::cout<<"  elim"<<std::endl;
     this->destroy_order(map);
   }
 }
 
 void Robot::add_normal_order(std::string order) {
-  // std::cout << " N " << order << std::endl;
   toExecuteOrders->insert(order);
 }
 
 void Robot::add_order_with_priority(std::string order) {
-  // std::cout << " P " << order << std::endl;
   toExecuteOrders->insert_with_priority(order);
 }
 
@@ -156,7 +135,6 @@ void Robot::collect_order(Map& map) {
 }
 
 void Robot::destroy_order(Map& map) {
-  // std::cout << "ENTRANDO EM ORDERM DESTRUCAO" << std::endl;
   std::string runned_order;
   if(this->destroy_alien(map, this->pos_x, this->pos_y)) {
     runned_order = "ROBO "+std::to_string(id)+": ALIEN ELIMINADO EM ("+std::to_string(this->pos_x)+","+std::to_string(this->pos_y)+")";

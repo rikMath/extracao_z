@@ -114,7 +114,6 @@ void Queue<TValue>::print(){
   QueueElement<TValue>* current_element = front;
 
   int size = this->get_element_number();
-  // std::cout << " Relatório tamanho: " << size << std::endl;
   std::string current_order;
   for(int i = 0; i < size; i++) {
     current_order = current_element->item;

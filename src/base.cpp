@@ -12,10 +12,8 @@ Base::Base(std::ifstream &mapFile) {
 }
 
 Base::~Base() {
-  // std::cout << "entrando destrutor base" << std::endl;
   delete map;
   delete robots;
-  // std::cout << "saindo destrutor base" << std::endl;
 }
 
 void Base::activate_robot(int id) {

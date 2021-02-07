@@ -1,7 +1,3 @@
-# g++ -o bin/main src/main.cpp src/queue.cpp src/matrix.cpp src/map.cpp src/robot.cpp src/base.cpp src/order.cpp  src/robotArray.cpp
-# g++ -o bin/test src/test.cpp src/queue.cpp src/matrix.cpp src/map.cpp src/robot.cpp src/base.cpp src/order.cpp  src/robotArray.cpp
-
-#
 # Copyright 2021 Alysson Ribeiro da Silva - Federal University of Minas Gerais
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
