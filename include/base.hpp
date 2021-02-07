@@ -27,7 +27,7 @@ public:
   void activate_robot(int);
   void return_robot(int);
   void print_relatory(int);
-  void execute_orders(int);
+  void execute_order(int);
 
   void add_normal_order(std::string, int);
   void add_order_with_priority(std::string, int);

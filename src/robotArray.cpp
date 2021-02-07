@@ -1,5 +1,6 @@
 #include "../include/robotArray.hpp"
 #include "../include/robot.hpp"
+#include "../include/map.hpp"
 
 RobotArray::RobotArray() {
   for (int i=0; i<50; i++) {
@@ -26,6 +27,10 @@ int RobotArray::return_aliens_to_base(int id) {
 
 void RobotArray::print_relatory(int id) {
   robots[id]->print_relatory();
+};
+
+void RobotArray::execute_order(int id, Map& map) {
+  robots[id]->execute_order(map);
 };
 
 void RobotArray::add_normal_order(std::string order, int id) {

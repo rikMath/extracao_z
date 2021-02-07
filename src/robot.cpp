@@ -71,6 +71,22 @@ void Robot::print_relatory() {
   executedOrders->clear();
 }
 
+void Robot::execute_order(Map& map) {
+  std::string current_order;
+  while (true) {
+    current_order = toExecuteOrders->delete_element();
+    std::cout << current_order << std::endl;
+
+    if (current_order == "")
+      break;
+
+  }
+  // std::cout << "Tamanho " << toExecuteOrders.
+  // toExecuteOrders->print();
+  // toExecuteOrders->clear();
+  std::cout << "Fim executar" << std::endl;
+}
+
 void Robot::add_normal_order(std::string order) {
   toExecuteOrders->insert(order);
 }

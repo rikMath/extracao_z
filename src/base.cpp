@@ -41,8 +41,9 @@ void Base::print_relatory(int id) {
   robots->print_relatory(id);
 }
 
-void Base::execute_orders(int id) {
+void Base::execute_order(int id) {
   std::cout << "Execução" << std::endl;
+  robots->execute_order(id, *map);
 }
 
 void Base::add_normal_order(std::string order, int id) {

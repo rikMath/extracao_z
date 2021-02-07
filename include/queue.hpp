@@ -75,14 +75,22 @@ void Queue<TValue>::insert(TValue element){
 
 template <class TValue>
 TValue Queue<TValue>::delete_element(){
-  TValue returnItem = front->item;
-  QueueElement<TValue>* toDeleteElement = front;
 
-  front = front->next;
+  if(front != NULL){
+    TValue returnItem = front->item;
+    QueueElement<TValue>* toDeleteElement = front;
 
-  delete toDeleteElement;
+    front = front->next;
 
-  return returnItem;
+    delete toDeleteElement;
+
+    return returnItem;
+  }
+
+  length--;
+  
+  return "";
+
 }
 
 template <class TValue>
@@ -94,6 +102,7 @@ void Queue<TValue>::clear(){
     this->delete_element();
     current_element = current_element->next;
   }
+  length = 0;
 }
 
 template <class TValue>

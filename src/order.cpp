@@ -48,15 +48,15 @@ void Orders::add_normal_order(std::string order, Base &base) {
   int id;
   if (order.find("MOVER") != std::string::npos){
     id = std::stoi(order.substr(6, 8));
-    std::cout << order << " " << id << std::endl;
+    // std::cout << order << " " << id << std::endl;
   }
   else if (order.find("COLETAR") != std::string::npos){
     id = std::stoi(order.substr(8, order.length()));
-    std::cout << order << " " << id << std::endl;
+    // std::cout << order << " " << id << std::endl;
   }
   else if (order.find("ELIMINAR") != std::string::npos){
     id = std::stoi(order.substr(9, order.length()));
-    std::cout << order << " " << id << std::endl;
+    // std::cout << order << " " << id << std::endl;
   }
   base.add_normal_order(order, id);
 }
@@ -65,15 +65,15 @@ void Orders::add_order_with_priority(std::string order, Base &base) {
   int id;
   if (order.find("MOVER") != std::string::npos){
     id = std::stoi(order.substr(7, 9));
-    std::cout << order << " " << id << std::endl;
+    // std::cout << order << " " << id << std::endl;
   }
   else if (order.find("COLETAR") != std::string::npos){
     id = std::stoi(order.substr(9, order.length()));
-    std::cout << order << " " << id << std::endl;
+    // std::cout << order << " " << id << std::endl;
   }
   else if (order.find("ELIMINAR") != std::string::npos){
     id = std::stoi(order.substr(10, order.length()));
-    std::cout << order << " " << id << std::endl;
+    // std::cout << order << " " << id << std::endl;
   }
   base.add_order_with_priority(order, id);
 }
@@ -110,7 +110,7 @@ void Orders::return_order(std::string order, Base &base) {
 
 void Orders::execute_order(std::string order, Base &base) {
   int id = std::stoi(order.substr(9, order.length()));
-  base.execute_orders(id);
+  base.execute_order(id);
 }
 
 bool Orders::is_direct_order(std::string order) {
