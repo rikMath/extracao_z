@@ -67,9 +67,10 @@ int Robot::return_aliens_to_base() {
 }
 
 void Robot::print_relatory() {
-  std::cout << " Relatório tamanho: " << executedOrders->get_element_number() << std::endl;
+  int size = executedOrders->get_element_number();
+  // std::cout << " Relatório tamanho: " << size << std::endl;
   std::string current_order;
-  for(int i = 0; i < executedOrders->get_element_number(); i++) {
+  for(int i = 0; i < size; i++) {
     current_order = executedOrders->delete_element();
 
     std::cout << current_order << std::endl;
@@ -78,37 +79,42 @@ void Robot::print_relatory() {
 }
 
 void Robot::execute_order(Map& map) {
-  std::cout << " Execução tamanho: " << toExecuteOrders->get_element_number() << std::endl;
+  int size = toExecuteOrders->get_element_number();
+  // std::cout << " Execução tamanho: " << size << std::endl;
   std::string current_order;
-  for(int i = 0; i < toExecuteOrders->get_element_number(); i++) {
+  for(int i = 0; i < size; i++) {
+    // std::cout << i <<"\n";
     current_order = toExecuteOrders->delete_element();
-    std::cout << current_order << std::endl;
+    // std::cout << current_order << std::endl;
     this->process_order(current_order, map);
 
   }
-  std::cout << " Execução FIM"<<std::endl;
+  // std::cout << " Execução FIM"<<std::endl;
 }
 
 void Robot::process_order(std::string order, Map& map){
 
   if (order.find("MOVER") != std::string::npos) {
+    // std::cout<<"  move"<<std::endl;
     this->move_order(order, map);
   }
   else if (order.find("COLETAR") != std::string::npos) {
+    // std::cout<<"  colec"<<std::endl;
     this->collect_order(map);
   }
   else if (order.find("ELIMINAR") != std::string::npos) {
+    // std::cout<<"  elim"<<std::endl;
     this->destroy_order(map);
   }
 }
 
 void Robot::add_normal_order(std::string order) {
-  std::cout << " N " << order << std::endl;
+  // std::cout << " N " << order << std::endl;
   toExecuteOrders->insert(order);
 }
 
 void Robot::add_order_with_priority(std::string order) {
-  std::cout << " P " << order << std::endl;
+  // std::cout << " P " << order << std::endl;
   toExecuteOrders->insert_with_priority(order);
 }
 
