@@ -111,12 +111,18 @@ int Queue<TValue>::get_element_number(){
 
 template <class TValue>
 void Queue<TValue>::print(){
-  QueueElement<TValue>* current_element;
-  current_element = front;
+  QueueElement<TValue>* current_element = front;
 
-  while (current_element != NULL){
-    current_element->print();
+  int size = this->get_element_number();
+  // std::cout << " Relatório tamanho: " << size << std::endl;
+  std::string current_order;
+  for(int i = 0; i < size; i++) {
+    current_order = current_element->item;
+
+    std::cout << current_order << std::endl;
+
     current_element = current_element->next;
+
   }
 }
 

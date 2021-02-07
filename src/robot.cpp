@@ -30,6 +30,10 @@ bool Robot::activate() {
 }
 
 void Robot::return_to_base() {
+  int size = executedOrders->get_element_number();
+  for(int i = 0; i < size; i++) {
+    executedOrders->delete_element();
+  }
   this->active = false;
   this->pos_x = 0;
   this->pos_y = 0;
@@ -73,15 +77,16 @@ int Robot::return_aliens_to_base() {
 }
 
 void Robot::print_relatory() {
-  int size = executedOrders->get_element_number();
-  // std::cout << " Relatório tamanho: " << size << std::endl;
-  std::string current_order;
-  for(int i = 0; i < size; i++) {
-    current_order = executedOrders->delete_element();
-
-    std::cout << current_order << std::endl;
-
-  }
+  // int size = executedOrders->get_element_number();
+  // // std::cout << " Relatório tamanho: " << size << std::endl;
+  // std::string current_order;
+  // for(int i = 0; i < size; i++) {
+  //   current_order = executedOrders->delete_element();
+  //
+  //   std::cout << current_order << std::endl;
+  //
+  // }
+  executedOrders->print();
 }
 
 void Robot::execute_order(Map& map) {
