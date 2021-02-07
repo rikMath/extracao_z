@@ -21,7 +21,7 @@ private:
 
 public:
   // Construtor
-  Robot (int, int=-1, int=-1);
+  Robot (int, int=0, int=0);
 
   // Destrutor
   virtual ~Robot ();
@@ -36,6 +36,7 @@ public:
 
   // Setters
   bool activate();
+  void return_to_base();
 
   // Ordens referentes ao mapa
   bool move_to(const Map& map, int x, int y);

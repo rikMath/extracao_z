@@ -15,6 +15,7 @@ public:
   virtual ~RobotArray ();
   bool activate_robot(int);
   bool is_active_robot(int);
+  void return_to_base(int);
 
   int return_resources_to_base(int);
   int return_aliens_to_base(int);

@@ -48,3 +48,7 @@ bool RobotArray::activate_robot(int id) {
 bool RobotArray::is_active_robot(int id) {
   return robots[id]->is_active();
 }
+
+void RobotArray::return_to_base(int id) {
+  return robots[id]->return_to_base();
+}

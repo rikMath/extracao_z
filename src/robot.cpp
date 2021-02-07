@@ -29,6 +29,12 @@ bool Robot::activate() {
   return was_active;
 }
 
+void Robot::return_to_base() {
+  this->active = false;
+  this->pos_x = 0;
+  this->pos_y = 0;
+}
+
 bool Robot::move_to(const Map& map, int x, int y){
   if (map.move_to(x, y)){
     this->pos_x = x;

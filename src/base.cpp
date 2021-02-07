@@ -30,6 +30,7 @@ void Base::return_robot(int id) {
   if(robots->is_active_robot(id)) {
     int resources_robot = robots->return_resources_to_base(id);
     int alien_robot = robots->return_aliens_to_base(id);
+    robots->return_to_base(id);
     std::cout << "BASE: ROBO " << id << " RETORNOU ALIENS " << alien_robot <<
       " RECURSOS " << resources_robot << std::endl;
     this->resources += resources_robot;
