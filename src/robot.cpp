@@ -75,7 +75,6 @@ void Robot::execute_order(Map& map) {
   std::string current_order;
   while (true) {
     current_order = toExecuteOrders->delete_element();
-    std::cout << current_order << std::endl;
 
     if (current_order == ""){
       break;
@@ -84,12 +83,19 @@ void Robot::execute_order(Map& map) {
     this->process_order(current_order, map);
 
   }
-  std::cout << "Fim executar" << std::endl;
 }
 
 void Robot::process_order(std::string order, Map& map){
-  std::cout << "Processando " << order << std::endl;
-  this->move_to(map, 1, 1);
+
+  if (order.find("MOVER") != std::string::npos) {
+    this->move_order(order, map);
+  }
+  else if (order.find("COLETAR") != std::string::npos) {
+    this->collect_order(map);
+  }
+  else if (order.find("ELIMINAR") != std::string::npos) {
+    this->destroy_order(map);
+  }
 }
 
 void Robot::add_normal_order(std::string order) {
@@ -98,4 +104,41 @@ void Robot::add_normal_order(std::string order) {
 
 void Robot::add_order_with_priority(std::string order) {
   toExecuteOrders->insert_with_priority(order);
+}
+
+void Robot::move_order(std::string order, Map& map) {
+  int x =std::stoi(order.substr(order.find("(")+1,order.find(",")));
+  int y =std::stoi(order.substr(order.find(",")+1,order.find(")")));
+  std::string runned_order;
+  if (this->move_to(map, x, y)) {
+    runned_order = "ROBO "+std::to_string(id)+": MOVEU PARA ("+std::to_string(x)+","+std::to_string(y)+")";
+
+  }
+  else {
+    runned_order = "ROBO "+std::to_string(id)+": IMPOSSIVEL MOVER PARA ("+std::to_string(x)+","+std::to_string(y)+")";
+
+  }
+  executedOrders->insert(runned_order);
+}
+
+void Robot::collect_order(Map& map) {
+  std::string runned_order;
+  if(this->collect_resource(map, this->pos_x, this->pos_y)) {
+    runned_order = "ROBO "+std::to_string(id)+": RECURSOS COLETADOS EM ("+std::to_string(this->pos_x)+","+std::to_string(this->pos_y)+")";
+  }
+  else {
+    runned_order = "ROBO "+std::to_string(id)+": IMPOSSIVEL COLETAR RECURSOS EM ("+std::to_string(this->pos_x)+","+std::to_string(this->pos_y)+")";
+  }
+  executedOrders->insert(runned_order);
+}
+
+void Robot::destroy_order(Map& map) {
+  std::string runned_order;
+  if(this->destroy_alien(map, this->pos_x, this->pos_y)) {
+    runned_order = "ROBO "+std::to_string(id)+": ALIEN ELIMINADO EM ("+std::to_string(this->pos_x)+","+std::to_string(this->pos_y)+")";
+  }
+  else {
+    runned_order = "ROBO "+std::to_string(id)+": IMPOSSIVEL ELIMINAR ALIEN EM ("+std::to_string(this->pos_x)+","+std::to_string(this->pos_y)+")";
+  }
+  executedOrders->insert(runned_order);
 }

@@ -42,7 +42,6 @@ void Base::print_relatory(int id) {
 }
 
 void Base::execute_order(int id) {
-  std::cout << "Execução" << std::endl;
   robots->execute_order(id, *map);
 }
 

@@ -51,6 +51,9 @@ public:
   void execute_order(Map& map);
   void add_normal_order(std::string);
   void add_order_with_priority(std::string);
+  void move_order(std::string, Map&);
+  void collect_order(Map&);
+  void destroy_order(Map&);
 };
 
 #endif

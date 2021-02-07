@@ -88,21 +88,21 @@ TValue Queue<TValue>::delete_element(){
   }
 
   length--;
-  
+
   return "";
 
 }
 
 template <class TValue>
 void Queue<TValue>::clear(){
-  QueueElement<TValue>* current_element;
-  current_element = front;
-
-  while (current_element != NULL){
-    this->delete_element();
-    current_element = current_element->next;
-  }
-  length = 0;
+  // QueueElement<TValue>* current_element;
+  // current_element = front;
+  //
+  // while (current_element != NULL){
+  //   this->delete_element();
+  //   current_element = current_element->next;
+  // }
+  // length = 0;
 }
 
 template <class TValue>
@@ -112,13 +112,13 @@ int Queue<TValue>::get_element_number(){
 
 template <class TValue>
 void Queue<TValue>::print(){
-  QueueElement<TValue>* current_element;
-  current_element = front;
-
-  while (current_element != NULL){
-    current_element->print();
-    current_element = current_element->next;
-  }
+  // QueueElement<TValue>* current_element;
+  // current_element = front;
+  //
+  // while (current_element != NULL){
+  //   current_element->print();
+  //   current_element = current_element->next;
+  // }
 }
 
 
