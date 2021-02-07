@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include "./map.hpp"
 #include "./queue.hpp"
 
@@ -14,6 +15,8 @@ private:
   bool active;
   PriorityQueue<std::string>* toExecuteOrders;
   PriorityQueue<std::string>* executedOrders;
+
+  void process_order(std::string, Map&);
 
 
 public:

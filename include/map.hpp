@@ -14,7 +14,7 @@ private:
 
   Matrix* elements;
 
-  inline std::string visit_position(int x, int y) const {return (*elements)[x-1][y-1];};
+  inline std::string visit_position(int x, int y) const {return (*elements)[x][y];};
 
 public:
 

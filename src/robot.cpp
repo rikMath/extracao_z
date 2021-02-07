@@ -77,14 +77,19 @@ void Robot::execute_order(Map& map) {
     current_order = toExecuteOrders->delete_element();
     std::cout << current_order << std::endl;
 
-    if (current_order == "")
+    if (current_order == ""){
       break;
+    }
+
+    this->process_order(current_order, map);
 
   }
-  // std::cout << "Tamanho " << toExecuteOrders.
-  // toExecuteOrders->print();
-  // toExecuteOrders->clear();
   std::cout << "Fim executar" << std::endl;
+}
+
+void Robot::process_order(std::string order, Map& map){
+  std::cout << "Processando " << order << std::endl;
+  this->move_to(map, 1, 1);
 }
 
 void Robot::add_normal_order(std::string order) {

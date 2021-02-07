@@ -34,7 +34,7 @@ bool Map::destroy_alien(int x, int y) {
   std::string current_pos_value = this->visit_position(x, y);
 
   if (current_pos_value == this->alien){
-    elements->set(x, y, ".");
+    elements->set(x+1, y+1, ".");
     return true;
   }
   return false;
@@ -44,7 +44,7 @@ bool Map::colect_resource(int x, int y) {
   std::string current_pos_value = this->visit_position(x, y);
 
   if (current_pos_value == this->resource){
-    elements->set(x, y, ".");
+    elements->set(x+1, y+1, ".");
     return true;
   }
   return false;
