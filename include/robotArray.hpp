@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include "./robot.hpp"
 
 #ifndef ROBOTLIST_H
@@ -17,6 +18,9 @@ public:
   int return_resources_to_base(int);
   int return_aliens_to_base(int);
   void print_relatory(int);
+
+  void add_normal_order(std::string, int);
+  void add_order_with_priority(std::string, int);
 };
 
 #endif

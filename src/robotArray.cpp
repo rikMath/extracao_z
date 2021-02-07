@@ -28,6 +28,14 @@ void RobotArray::print_relatory(int id) {
   robots[id]->print_relatory();
 };
 
+void RobotArray::add_normal_order(std::string order, int id) {
+  robots[id]->add_normal_order(order);
+};
+
+void RobotArray::add_order_with_priority(std::string order, int id) {
+  robots[id]->add_order_with_priority(order);
+}
+
 bool RobotArray::activate_robot(int id) {
   return robots[id]->activate() ? true : false;
 };

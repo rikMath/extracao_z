@@ -45,10 +45,10 @@ void Base::execute_orders(int id) {
   std::cout << "Execução" << std::endl;
 }
 
-void Base::add_normal_order(std::string order) {
-  std::cout << "Ordem s Enviada" << std::endl;
+void Base::add_normal_order(std::string order, int id) {
+  robots->add_normal_order(order, id);
 }
 
-void Base::add_order_with_priority(std::string order) {
-  std::cout << "Ordem c Enviada" << std::endl;
+void Base::add_order_with_priority(std::string order, int id) {
+  robots->add_order_with_priority(order, id);
 }

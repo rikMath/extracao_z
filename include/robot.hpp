@@ -45,7 +45,8 @@ public:
 
   // Outras ordens
   void print_relatory();
-
+  void add_normal_order(std::string);
+  void add_order_with_priority(std::string);
 };
 
 #endif

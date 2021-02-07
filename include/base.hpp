@@ -29,8 +29,8 @@ public:
   void print_relatory(int);
   void execute_orders(int);
 
-  void add_normal_order(std::string);
-  void add_order_with_priority(std::string);
+  void add_normal_order(std::string, int);
+  void add_order_with_priority(std::string, int);
 };
 
 #endif

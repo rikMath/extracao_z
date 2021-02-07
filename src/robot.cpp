@@ -70,3 +70,11 @@ void Robot::print_relatory() {
   executedOrders->print();
   executedOrders->clear();
 }
+
+void Robot::add_normal_order(std::string order) {
+  toExecuteOrders->insert(order);
+}
+
+void Robot::add_order_with_priority(std::string order) {
+  toExecuteOrders->insert_with_priority(order);
+}
