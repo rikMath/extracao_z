@@ -29,9 +29,11 @@ void Base::activate_robot(int id) {
 void Base::return_robot(int id) {
   if(robots->is_active_robot(id)) {
     int resources_robot = robots->return_resources_to_base(id);
-    int alien_robot = robots->return_resources_to_base(id);
+    int alien_robot = robots->return_aliens_to_base(id);
     std::cout << "BASE: ROBO " << id << " RETORNOU ALIENS " << resources_robot <<
       " RECURSOS " << alien_robot << std::endl;
+    this->resources += resources_robot;
+    this->aliens += alien_robot;
     return;
   }
   std::cout << "BASE: ROBO " << id << " NAO ESTA EM MISSAO" << std::endl;

@@ -56,6 +56,7 @@ bool Robot::collect_resource(Map& map, int x, int y){
 
 int Robot::return_resources_to_base() {
   int r = this->resources;
+  std::cout << r << std::endl;
   this->resources = 0;
   return r;
 }
