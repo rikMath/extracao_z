@@ -59,7 +59,7 @@ void Queue<TValue>::insert(TValue element){
   newCell = new QueueElement<TValue>;
   newCell->item = element;
 
-  if (length != 0){
+  if (length++ != 0){
     back->next = newCell;
     back = newCell;
   }
@@ -70,11 +70,12 @@ void Queue<TValue>::insert(TValue element){
     back = newCell;
   }
 
-  length++;
 }
 
 template <class TValue>
 TValue Queue<TValue>::delete_element(){
+
+  length--;
 
   if(front != NULL){
     TValue returnItem = front->item;
@@ -87,22 +88,20 @@ TValue Queue<TValue>::delete_element(){
     return returnItem;
   }
 
-  length--;
-
   return "";
 
 }
 
 template <class TValue>
 void Queue<TValue>::clear(){
-  // QueueElement<TValue>* current_element;
-  // current_element = front;
-  //
-  // while (current_element != NULL){
-  //   this->delete_element();
-  //   current_element = current_element->next;
-  // }
-  // length = 0;
+  QueueElement<TValue>* current_element;
+  current_element = front;
+
+  while (current_element != NULL){
+    this->delete_element();
+    current_element = current_element->next;
+  }
+  length = 0;
 }
 
 template <class TValue>
@@ -112,13 +111,13 @@ int Queue<TValue>::get_element_number(){
 
 template <class TValue>
 void Queue<TValue>::print(){
-  // QueueElement<TValue>* current_element;
-  // current_element = front;
-  //
-  // while (current_element != NULL){
-  //   current_element->print();
-  //   current_element = current_element->next;
-  // }
+  QueueElement<TValue>* current_element;
+  current_element = front;
+
+  while (current_element != NULL){
+    current_element->print();
+    current_element = current_element->next;
+  }
 }
 
 

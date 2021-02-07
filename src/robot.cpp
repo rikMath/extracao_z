@@ -56,7 +56,6 @@ bool Robot::collect_resource(Map& map, int x, int y){
 
 int Robot::return_resources_to_base() {
   int r = this->resources;
-  std::cout << r << std::endl;
   this->resources = 0;
   return r;
 }
@@ -68,22 +67,26 @@ int Robot::return_aliens_to_base() {
 }
 
 void Robot::print_relatory() {
-  executedOrders->print();
-  executedOrders->clear();
+  std::cout << " Relatório tamanho: " << executedOrders->get_element_number() << std::endl;
+  std::string current_order;
+  for(int i = 0; i < executedOrders->get_element_number(); i++) {
+    current_order = executedOrders->delete_element();
+
+    std::cout << current_order << std::endl;
+
+  }
 }
 
 void Robot::execute_order(Map& map) {
+  std::cout << " Execução tamanho: " << toExecuteOrders->get_element_number() << std::endl;
   std::string current_order;
-  while (true) {
+  for(int i = 0; i < toExecuteOrders->get_element_number(); i++) {
     current_order = toExecuteOrders->delete_element();
-
-    if (current_order == ""){
-      break;
-    }
-
+    std::cout << current_order << std::endl;
     this->process_order(current_order, map);
 
   }
+  std::cout << " Execução FIM"<<std::endl;
 }
 
 void Robot::process_order(std::string order, Map& map){
@@ -100,10 +103,12 @@ void Robot::process_order(std::string order, Map& map){
 }
 
 void Robot::add_normal_order(std::string order) {
+  std::cout << " N " << order << std::endl;
   toExecuteOrders->insert(order);
 }
 
 void Robot::add_order_with_priority(std::string order) {
+  std::cout << " P " << order << std::endl;
   toExecuteOrders->insert_with_priority(order);
 }
 
@@ -134,6 +139,7 @@ void Robot::collect_order(Map& map) {
 }
 
 void Robot::destroy_order(Map& map) {
+  // std::cout << "ENTRANDO EM ORDERM DESTRUCAO" << std::endl;
   std::string runned_order;
   if(this->destroy_alien(map, this->pos_x, this->pos_y)) {
     runned_order = "ROBO "+std::to_string(id)+": ALIEN ELIMINADO EM ("+std::to_string(this->pos_x)+","+std::to_string(this->pos_y)+")";
