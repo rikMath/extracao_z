@@ -9,9 +9,6 @@
 
 class Orders{
 private:
-   PriorityQueue<std::string>* orderQueue;
-
-   void executeOrders();
 
    void receive_order(std::string, Base &base);
 
